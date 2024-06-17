@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <title>Banking App</title>
+</head>
+<body>
+    <div id="home" class="container">
+        <h1>Welcome to the Banking Page</h1>
+        <button id="view-customers-button">View All Customers</button>
+    </div>
+
+    <div id="customers" class="container" style="display:none;">
+        <h1>All Customers</h1>
+        <div id="customer-list"></div>
+        <button onclick="goHome()">Back to Home</button>
+    </div>
+
+    <div id="customer" class="container" style="display:none;">
+        <h1>Customer Details</h1>
+        <div id="customer-details"></div>
+        <button onclick="showTransferForm()">Transfer Money</button>
+        <button onclick="goBack()">Back to Customers</button>
+    </div>
+
+    <div id="transfer" class="container" style="display:none;">
+        <h1>Transfer Money</h1>
+        <form id="transfer-form">
+            <input type="hidden" id="from-customer-id">
+            <label for="to-customer-id">Transfer to:</label>
+            <select id="to-customer-id"></select>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required>
+            <button type="submit">Transfer</button>
+        </form>
+        <button onclick="goBack()">Back to Customers</button>
+    </div>
+
+    <footer>
+        <p>This project is made by Vartika Agarwal for the Spark Foundation Internship.</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/vartika-agarwal-566067263/" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

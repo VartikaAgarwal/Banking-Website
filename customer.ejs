@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+</head>
+<body>
+    <h1>Customer: <%= customer.name %></h1>
+    <p>Email: <%= customer.email %></p>
+    <p>Balance: ₹<%= customer.balance %></p>
+
+    <h2>Transfer Money</h2>
+    <form action="/transfer" method="post">
+        <input type="hidden" name="senderId" value="<%= customer._id %>">
+        <label for="receiverId">Transfer to:</label>
+        <select name="receiverId" required>
+            <% otherCustomers.forEach(otherCustomer => { %>
+                <option value="<%= otherCustomer._id %>"><%= otherCustomer.name %> - Balance: $<%= otherCustomer.balance %></option>
+            <% }) %>
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" required>
+        <button type="submit">Transfer</button>
+    </form>
+
+    <button onclick="window.location.href='/customers'">Back to Customers</button>
+</body>
+</html>

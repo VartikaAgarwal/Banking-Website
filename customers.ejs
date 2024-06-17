@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Customers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: url('../img/bg5.jpg');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;   /* Center vertically */
+            min-block-size: 100vh;     /* Ensure the body takes full viewport height */
+            text-align: center;    /* Center text inside the body */
+            color: rgb(16, 18, 60); /* Set default text color */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            margin-block-start: 20px; /* Add some top margin */
+            margin-block-end: 20px; /* Add margin to bottom */
+            text-decoration: underline;
+        }
+        
+        table {
+            inline-size: 100%; /* Adjust table width as needed */
+            margin-block-end: 20px; /* Add margin to bottom */
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: start;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #0954a4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #14385f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Customers</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% customers.forEach(customer => { %>
+                    <tr>
+                        <td><a href="/customers/<%= customer._id %>"><%= customer.name %></a></td>
+                        <td><%= customer.email %></td>
+                        <td>₹<%= customer.balance %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <button onclick="window.location.href='/'">Back to Home</button>
+    </div>
+</body>
+</html>
